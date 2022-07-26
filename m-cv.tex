@@ -1,0 +1,43 @@
+\setuppapersize[A4]
+\setuppagenumbering[state=none]
+\setuplayout[topspace=20mm, header=0mm, textheight=257mm, width=160mm]
+\setupbodyfont[rm, 9pt]
+\setupinteraction[state=start]
+% \setupcolors[state=start]
+\setupinteraction[color=blue,style=bold]
+
+\define[2]\LINK{
+    \goto{#1}[url(#2)]
+}
+
+\define[2]\CVTITLE{
+    % \framed[frame=off, background=color, backgroundcolor=gray, width=\textwidth, height=10mm, align=middle]{\tfc #1 \Cap{#2}}
+    \midaligned{\tfc \bf #1 \Cap{#2}}
+    \blank[big]
+}
+
+\define[1]\CVSUBTITLE{
+    \midaligned{#1}
+    \blank[2*big]
+}
+
+\define[1]\CVSECTION{
+    \framed[frame=off, bottomframe=on, width=\textwidth, align=flushleft, loffset=2mm]
+    {\tfa \Cap{#1}}
+    \blank[big]
+}
+
+\define[2]\CVHEADING{
+    \framed[frame=off, width=\textwidth, align=flushleft]
+    {\bf #1 \wordright{\bf #2}}
+}
+
+\define[2]\CVSUBHEADING{
+    \framed[frame=off, width=\textwidth, align=flushleft]
+    {\it #1 \wordright{\bf #2}}
+}
+
+\setupitemize[nowhite, after]
+\setupitemize[leftmargin=5.5mm]
+
+\endinput
