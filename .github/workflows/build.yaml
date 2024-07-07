@@ -1,6 +1,6 @@
 name: curriculum-vitae
 run-name: ${{ github.actor }} is building tex files.
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   Compile-Actions:
     runs-on: ubuntu-latest
