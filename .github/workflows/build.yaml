@@ -11,5 +11,7 @@ jobs:
         run: echo $(ls *.tex | grep -xv "m-cv.tex") | xargs context
       - name: Committing and pushing PDFs
         run: |
-          git commit -am "Updated PDFs ${{ env.FILES }}"
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+          git commit -am "Updated PDFs."
           git push
