@@ -6,7 +6,7 @@ jobs:
     container:
       image: texlive/texlive:latest
     steps:
-      - uses: Setup git
+      - name: Setup git
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/checkout@v4
