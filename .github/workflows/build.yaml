@@ -16,3 +16,4 @@ jobs:
         run: |
           files | xargs git add
           git commit -m "Updated PDFs $files"
+          git push
