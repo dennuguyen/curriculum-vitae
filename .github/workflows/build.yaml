@@ -7,14 +7,9 @@ jobs:
       image: ghcr.io/moderncv/debian-texlive-docker:main
     steps:
       - uses: actions/checkout@v3
-      - name: Finding TEX files to build
-        run: |
-          FILES=$(ls *.tex | grep -xv "m-cv.tex")
-          echo "FILES=$FILES" >> $GITHUB_ENV
       - name: Building PDFs
-        run: echo "${{ env.FILES }}" | xargs context
+        run: echo $(ls *.tex | grep -xv "m-cv.tex") | xargs context
       - name: Committing and pushing PDFs
         run: |
-          ${{ env.FILES}} | xargs git add
-          git commit -m "Updated PDFs ${{ env.FILES }}"
+          git commit -am "Updated PDFs ${{ env.FILES }}"
           git push
