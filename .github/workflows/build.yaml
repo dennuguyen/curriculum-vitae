@@ -10,5 +10,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build PDF
-        run: context *.tex!(m-cv)
+        run: ls *.tex | grep -xv "m-cv.tex" | xargs context
       - uses: stefanzweifel/git-auto-commit-action@v5
