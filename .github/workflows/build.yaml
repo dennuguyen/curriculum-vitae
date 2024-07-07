@@ -9,9 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Finding TEX files to build
-        run: echo "FILES=$(ls *.tex | grep -xv "m-cv.tex")" >> $GITHUB_ENV
+        run: |
+          FILES=$(ls *.tex | grep -xv "m-cv.tex")
+          echo "FILES=\"$FILES\"" >> $GITHUB_ENV
       - name: Building PDFs
-        run: ${{ env.FILES }} | xargs context
+        run: echo "${{ env.FILES }}" | xargs context
       - name: Committing and pushing PDFs
         run: |
           ${{ env.FILES}} | xargs git add
