@@ -1,5 +1,4 @@
 name: curriculum-vitae
-run-name: ${{ github.actor }} is building tex files.
 on: [push, workflow_dispatch]
 jobs:
   building-tex-files:
@@ -11,7 +10,7 @@ jobs:
       - name: Finding TEX files to build
         run: |
           FILES=$(ls *.tex | grep -xv "m-cv.tex")
-          echo "FILES=\"$FILES\"" >> $GITHUB_ENV
+          printf "FILES=\"$FILES\"" >> $GITHUB_ENV
       - name: Building PDFs
         run: echo "${{ env.FILES }}" | xargs context
       - name: Committing and pushing PDFs
