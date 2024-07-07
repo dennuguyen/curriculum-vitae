@@ -15,4 +15,4 @@ jobs:
       - name: Push PDFs
         run: |
           files | xargs git add
-          git commit -m "Updated PDFs $file"
+          git commit -m "Updated PDFs $files"
