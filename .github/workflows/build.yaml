@@ -6,7 +6,10 @@ jobs:
     container:
       image: texlive/texlive:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: Setup git
+        - run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: actions/checkout@v4
       - name: Building PDFs
         run: echo $(ls *.tex | grep -xv "m-cv.tex") | xargs context
       - name: Committing and pushing PDFs
