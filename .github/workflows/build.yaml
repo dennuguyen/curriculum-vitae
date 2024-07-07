@@ -1,0 +1,14 @@
+name: curriculum-vitae
+run-name: ${{ github.actor }} is building tex files.
+on: [push]
+jobs:
+  Compile-Actions:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/moderncv/debian-texlive-docker:main
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build PDF
+        run: context *.tex!(m-cv)
+      - uses: stefanzweifel/git-auto-commit-action@v5
