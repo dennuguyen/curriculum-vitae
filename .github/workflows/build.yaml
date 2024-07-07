@@ -7,7 +7,7 @@ jobs:
       image: texlive/texlive:latest
     steps:
       - uses: Setup git
-        - run: |
+        run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/checkout@v4
       - name: Building PDFs
