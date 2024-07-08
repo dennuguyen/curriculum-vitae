@@ -1,12 +1,11 @@
 # CV
 
-## Context Garden
+```bash
+# fix for unknown script 'mtx-context.lua' or 'mtx-mtx-context.lua'
+mtxrun --generate
 
-https://wiki.contextgarden.net/Main_Page
-
-## Build
-
-```
-mtxrun --generate # if you get something like -> unknown script 'mtx-context.lua' or 'mtx-mtx-context.lua'
+# build pdfs
 context cv.tex
 ```
+
+> https://wiki.contextgarden.net/Main_Page
