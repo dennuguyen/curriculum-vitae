@@ -1,0 +1,37 @@
+\usemodule[letter]
+\usemodule[util]
+
+\define\sender{Dan Huy Nguyen}
+\define\sendee{Name}
+
+\setupletterframe[head][align=left,width=\textwidth]
+\setupletterlayer[head][style=\itx]
+\setupletterlayer[backaddress][alternative=]
+\setupletterlayer[address][x=3cm]
+\setuplettertext[en][date=]
+\setupletterlayer[letternext][x=3cm]
+
+\setupletterelements[section][
+  title,
+  subject,
+  opening,
+  content,
+  closing,
+  signature,
+]
+
+\startletter[
+  toname={\sendee\\Role},
+  toaddress={Company Address},
+  fromname={\sender},
+  fromaddress={Sydney NSW\\danhuynguyen1@gmail.com\\(+61) 421 720 990\\\link{https://www.linkedin.com/in/dan-nguyen-857282190/}},
+  date={\currentdate[dd,/,mm,/,year]},
+  opening={\it Dear \sendee,},
+  subject={Application for Role in Company},
+  closing={\it Sincerely,},
+  signature={\it Dan Huy Nguyen}
+]
+
+Letter content
+
+\stopletter
